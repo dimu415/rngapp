@@ -42,7 +42,9 @@ public class UIManager : MonoBehaviour
         randomDrow,
         TouchOne,
         Bomb,
-        Timer
+        Timer,
+        Ladder,
+        Roulette
     }
     [System.Serializable]
     public class GameMode
