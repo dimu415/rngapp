@@ -5,14 +5,13 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; private set; }
 
     [Header("Effect Sources")]
-    public AudioSource sfxSource;     // 효과음용 오디오소스
+    public AudioSource sfxSource;
 
     [Header("Clips")]
-    public AudioClip[] sfxClips;      // 효과음들 (인덱스별/이름별)
+    public AudioClip[] sfxClips;
 
-    void Awake()
+    private void Awake()
     {
-        // 싱글톤
         if (Instance == null)
         {
             Instance = this;
@@ -23,17 +22,24 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // 효과음(One Shot)
+
     public void PlaySFX(int index)
     {
-        if (sfxClips.Length > index && sfxClips[index] != null)
-            sfxSource.PlayOneShot(sfxClips[index]);
+        if (sfxSource == null || sfxClips == null) return;
+        if (index < 0 || index >= sfxClips.Length) return;
+
+        AudioClip clip = sfxClips[index];
+        if (clip != null)
+        {
+            sfxSource.PlayOneShot(clip);
+        }
     }
-    // 효과음(이름으로)
-    public void PlaySFX(string name)
+
+    public void PlaySFX(string clipName)
     {
-        Debug.Log(name);
-        var clip = System.Array.Find(sfxClips, c => c != null && c.name == name);
+        if (sfxSource == null || sfxClips == null || string.IsNullOrEmpty(clipName)) return;
+
+        AudioClip clip = System.Array.Find(sfxClips, c => c != null && c.name == clipName);
         if (clip != null)
         {
             sfxSource.PlayOneShot(clip);

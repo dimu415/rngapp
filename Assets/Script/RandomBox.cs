@@ -40,9 +40,13 @@ public class RandomBox : MonoBehaviour
     public Text WarnningTxet;
 
     public Sprite BoxIdle, BoxOpen;
+    private Image _boxImage;
+
     // ===============================
     void Start()
     {
+        _boxImage = Box.GetComponent<Image>();
+
         // Range 버튼 연결
         minPlusBtn.onClick.AddListener(() => SetMin(minValue + 1));
         minMinusBtn.onClick.AddListener(() => SetMin(minValue - 1));
@@ -156,7 +160,7 @@ public class RandomBox : MonoBehaviour
     {
         boxItems.Clear();
         resultText.text = "";
-        Box.GetComponent<Image>().sprite = BoxIdle;
+        _boxImage.sprite = BoxIdle;
         if (toggleRange.isOn)
         {
             for (int i = minValue; i <= maxValue; i++)
@@ -186,23 +190,8 @@ public class RandomBox : MonoBehaviour
     {
         if (Openln) return;
         Openln = true;
-        Box.GetComponent<Image>().sprite = BoxOpen;
-        SoundManager.Instance.PlaySFX("Paper");
-
-        Paper.SetActive(true);
-        if (boxItems.Count == 0)
-        {
-            resultText.text = "끝!";
-            return;
-        }
-
-        int index = Random.Range(0, boxItems.Count);
-        string result = boxItems[index];
-
-        boxItems.RemoveAt(index); // 중복 방지
-        resultText.text = result;
-
-    
+        _boxImage.sprite = BoxOpen;
+        DrawRandomItem();
     }
 
     public void OpenPaper(GameObject obj)
@@ -220,14 +209,7 @@ public class RandomBox : MonoBehaviour
             btn.interactable = false;
 
         Paper.SetActive(true);
-
-
-        SoundManager.Instance.PlaySFX("Paper");
-        int index = Random.Range(0, boxItems.Count);
-        string result = boxItems[index];
-
-        boxItems.RemoveAt(index); // 중복 방지
-        resultText.text = result;
+        DrawRandomItem();
 
         Openln = true;
     }
@@ -238,10 +220,29 @@ public class RandomBox : MonoBehaviour
             GameSet();
 
         }
-        Box.GetComponent<Image>().sprite = BoxIdle;
+        _boxImage.sprite = BoxIdle;
         Paper.SetActive(false);  
         Openln= false;
 
+    }
+
+    private void DrawRandomItem()
+    {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySFX("Paper");
+        }
+
+        if (boxItems.Count == 0)
+        {
+            resultText.text = "끝!";
+            return;
+        }
+
+        int index = Random.Range(0, boxItems.Count);
+        string result = boxItems[index];
+        boxItems.RemoveAt(index);
+        resultText.text = result;
     }
 
 }
