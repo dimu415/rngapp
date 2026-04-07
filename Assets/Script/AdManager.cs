@@ -33,14 +33,14 @@ public class AdManager : MonoBehaviour
         ShowInterstitialAd();
     }
 
-    #region 배너 광고
+    #region
 
     private void LoadBannerAd()
     {
-        // 기존 광고 제거
+        //
         _bannerView?.Destroy();
 
-        AdSize adSize = AdSize.Banner; // 320x50 사이즈 권장
+        AdSize adSize = AdSize.Banner; // 320x50
         _bannerView = new BannerView(_bannerAdUnitId, adSize, AdPosition.Bottom);
 
         AdRequest adRequest = new AdRequest();
@@ -49,7 +49,7 @@ public class AdManager : MonoBehaviour
 
     #endregion
 
-    #region 전면 광고
+    #region
 
     private void LoadInterstitialAd()
     {
@@ -65,7 +65,7 @@ public class AdManager : MonoBehaviour
         {
             if (error != null || ad == null)
             {
-                Debug.LogError($"전면 광고 로드 실패: {error}");
+                Debug.LogError($"  琯 : {error}");
                 return;
             }
 
@@ -80,12 +80,12 @@ public class AdManager : MonoBehaviour
     {
         ad.OnAdFullScreenContentClosed += () =>
         {
-            Debug.Log("전면 광고 닫힘");
+            Debug.Log("  ");
         };
 
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {
-            Debug.LogError($"전면 광고 실행 실패: {error}");
+            Debug.LogError($"   : {error}");
         };
     }
 
@@ -105,7 +105,7 @@ public class AdManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("전면 광고가 아직 준비되지 않았습니다.");
+            Debug.Log("   曼 刻努求.");
         }*/
     }
 

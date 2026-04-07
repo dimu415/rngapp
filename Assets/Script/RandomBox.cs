@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -221,7 +221,7 @@ public class RandomBox : MonoBehaviour
 
         }
         _boxImage.sprite = BoxIdle;
-        Paper.SetActive(false);  
+        Paper.SetActive(false);
         Openln= false;
 
     }

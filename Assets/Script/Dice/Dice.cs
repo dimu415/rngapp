@@ -9,7 +9,7 @@ public class Dice : MonoBehaviour
     public int diceNumber = 0;
 
     void Awake()
-    {    
+    {
         rb = GetComponent<Rigidbody>();
     }
     public int ThrowDice()
@@ -77,5 +77,5 @@ public class Dice : MonoBehaviour
             SoundManager.Instance.PlaySFX("Dice");
         }
     }
-    
+
     }

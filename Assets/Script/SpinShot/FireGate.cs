@@ -15,41 +15,41 @@ public class FireGate : MonoBehaviour
     [Header("Common")]
     [SerializeField] private Mode mode = Mode.Bernoulli;
 
-    [Header("Bernoulli (매번 독립확률)")]
+    [Header("Bernoulli (탁 확)")]
     [SerializeField, Range(0f, 1f)] private float p = 0.1f;
 
     [Header("OneInN")]
-    [SerializeField, Min(1)] public int N = 3; // 사이클 길이
+    [SerializeField, Min(1)] public int N = 3; // 클
 
-    [Header("Pity (실패할 때 확률 증가)")]
+    [Header("Pity (  확 )")]
     [SerializeField, Range(0f, 1f)] private float baseP = 0.1f;
     [SerializeField, Range(0f, 1f)] private float addPOnFail = 0.01f;
     [SerializeField, Range(0f, 1f)] private float maxP = 0.9f;
 
 
     int pressInCycle = 0;
-    int hitIndex = -1;        // OneInN용: 이 인덱스에서 발사
-     public float curP;               // Pity용
+    int hitIndex = -1;        // OneInN:  琯 澁
+     public float curP;               // Pity
 
-    [Header("회전 대상")]
-    public Transform cylinder;          // 회전할 원통
+    [Header("회 ")]
+    public Transform cylinder;          // 회
     public Camera cam;
 
     public float sensitivity = 0.2f;
     private float curX;
     private float prevX;
     private float centerY;
-    
+
     bool soundChain=true;
     public bool Trylnn = false;
- 
+
     private void Awake()
     {
         centerY = Camera.main.WorldToScreenPoint(cylinder.position).y;
         ArrowStart = ArrowOb.localPosition;
 
     }
-  
+
     public void gameReset()
     {
         ArrowOb.localPosition = ArrowStart;
@@ -66,22 +66,22 @@ public class FireGate : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        float curY = Input.mousePosition.y; // 현재 Y좌표
+        float curY = Input.mousePosition.y; //  Y표
 
-       
 
-        curX = Input.mousePosition.x; // 현재 프레임 X
-        float delta = curX - prevX;         // 차이
+
+        curX = Input.mousePosition.x; //   X
+        float delta = curX - prevX;         //
         if (curY > centerY)
         {
-            delta = -delta; // 위쪽이면 반대 방향
+            delta = -delta; // 見 莩
         }
         if (Mathf.Abs(curX - prevX) > 2f)
         {
             ChainSoundStart();
         }
         cylinder.Rotate(0, 0, delta * sensitivity);
-        prevX = curX; // 이번 값을 다음 프레임 prev로 저장
+        prevX = curX; // 譴    prev
     }
     void ChainSoundStart()
     {
@@ -93,7 +93,7 @@ public class FireGate : MonoBehaviour
 
         }
     }
-    void soundTrue()=>soundChain = true;    
+    void soundTrue()=>soundChain = true;
     public void ChangeMode(int idx)
     {
         mode = (Mode)idx;
@@ -101,7 +101,7 @@ public class FireGate : MonoBehaviour
     public void chang_P(float m)=> p = m;
     public void chang_N(int m) => N = m;
     public void chang_AP(float m) => addPOnFail = m;
-    /// <summary>버튼 눌렀을 때 호출: 발사할지 여부</summary>
+    /// <summary>튼   호: 澁 </summary>
     public bool TryFire()
     {
         switch (mode)
@@ -180,15 +180,15 @@ public class FireGate : MonoBehaviour
     IEnumerator NoneArrowShot()
     {
         Vector3 startScale = cylinder.localScale;
-        Vector3 minScale = startScale * 0.9f; // 최소 크기 (30%)
-        Vector3 maxScale = startScale;        // 원래 크기
+        Vector3 minScale = startScale * 0.9f; // 玲 크 (30%)
+        Vector3 maxScale = startScale;        //  크
         float t = 0;
 
         SoundManager.Instance.PlaySFX("emp");
 
         while (t < 0.5f)
         {
-            t += Time.deltaTime / 0.3f; // 0.3초 동안
+            t += Time.deltaTime / 0.3f; // 0.3
             cylinder.localScale = Vector3.Lerp(startScale, minScale, t);
             yield return null;
         }
@@ -196,11 +196,11 @@ public class FireGate : MonoBehaviour
         t = 0;
         while (t < 0.5f)
         {
-            t += Time.deltaTime / 0.3f; // 다시 0.3초 동안
+            t += Time.deltaTime / 0.3f; // 母 0.3
             cylinder.localScale = Vector3.Lerp(minScale, maxScale, t);
             yield return null;
         }
 
-        cylinder.localScale = maxScale; // 안전하게 보정
+        cylinder.localScale = maxScale; // 構
     }
 }

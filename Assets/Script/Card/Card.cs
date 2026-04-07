@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Card : MonoBehaviour
 {
     public enum Suit { Spade, Heart, Diamond, Club }
-   
+
 
 
     [System.Serializable]
@@ -106,7 +106,7 @@ public class Card : MonoBehaviour
 
             win= UnD ? winUp : winDown;
         }
-       
+
 
         currentCard.CardObj.GetComponent<SpriteRenderer>().sprite = NextCard.sprite;
         currentCard.suit = NextCard.suit;

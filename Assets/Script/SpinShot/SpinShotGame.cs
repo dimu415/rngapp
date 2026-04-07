@@ -31,7 +31,7 @@ public class SpinShotGame : MonoBehaviour
 
     public void Fire_Arrow()
     {
-        if (ob_SpinShot.Trylnn) return; 
+        if (ob_SpinShot.Trylnn) return;
 
         bool FireIn = ob_SpinShot.Fire();
         if (FireIn)
@@ -50,7 +50,7 @@ public class SpinShotGame : MonoBehaviour
     {
         ShotBtn.SetActive(true);
         ResetBtn.SetActive(false);
-        Result("empty"); 
+        Result("empty");
         ob_SpinShot.gameReset();
         SetT();
     }
@@ -71,17 +71,17 @@ public class SpinShotGame : MonoBehaviour
         {
             case 0:
                 GMU[m].Text.text = (GMU[m].Slider.value * 100).ToString("F2") + "%";
-               
+
                 ob_SpinShot.chang_P(GMU[m].Slider.value);
                 break;
             case 1:
                 GMU[m].Text.text = GMU[m].Slider.value.ToString();
-               
+
                 ob_SpinShot.chang_N((int)GMU[m].Slider.value);
                 break;
             case 2:
                 GMU[m].Text.text = (GMU[m].Slider.value * 100).ToString("F2") + "%";
-              
+
                 ob_SpinShot.chang_AP(GMU[m].Slider.value);
                 break;
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public float resultCheckDelay = 1.2f; 
+    public float resultCheckDelay = 1.2f;
 
     private Vector3 or_coin = new Vector3(0, -0.5f, 0);
     Rigidbody rb;
@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour
 
     public void TossCoin()
     {
-        if (tossed) return; 
+        if (tossed) return;
 
         transform.localPosition = or_coin;
         tossed = true;
@@ -46,9 +46,9 @@ public class Coin : MonoBehaviour
     string JudgeResult()
     {
         float dot = Vector3.Dot(transform.up, Vector3.up);
-        if (dot > 0.7f) 
+        if (dot > 0.7f)
             return "Coin_head";
-        else if (dot < -0.7f) 
+        else if (dot < -0.7f)
             return "Coin_tail";
         else
             return "Coin_edge";
