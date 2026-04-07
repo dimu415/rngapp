@@ -8,13 +8,22 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instace;
-     private void Awake()
+    public static UIManager Instance { get; private set; }
+    public static UIManager instace; // backward compatibility
+
+    private Coroutine _resultCoroutine;
+
+    private void Awake()
     {
-        if (instace == null)
+        if (Instance == null)
+        {
+            Instance = this;
             instace = this;
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
     public GameObject MainBoard;
     public GameObject BackButton;
@@ -47,11 +56,9 @@ public class UIManager : MonoBehaviour
 
     public void ClickGameMode(int mode)
     {
-        foreach(var gm in gameMode)
-        {
-            gm.G_UI.SetActive(false);
-            gm.G_Object.SetActive(false);
-        }
+        if (mode < 0 || mode >= gameMode.Count) return;
+
+        SetAllGameModesActive(false);
         MainBoard.SetActive(false);
         BackButton.SetActive(true);
 
@@ -63,15 +70,20 @@ public class UIManager : MonoBehaviour
     }
     public void ClickGameBack()
     {
-        foreach (var gm in gameMode)
-        {
-            gm.G_UI.SetActive(false);
-            gm.G_Object.SetActive(false);
-        }
+        SetAllGameModesActive(false);
         MainBoard.SetActive(true);
 
         defaultOb.SetActive(false);
         adManager.ShowInterstitialAd();
+    }
+
+    private void SetAllGameModesActive(bool active)
+    {
+        foreach (var gm in gameMode)
+        {
+            gm.G_UI.SetActive(active);
+            gm.G_Object.SetActive(active);
+        }
     }
 
     public void ResultTset(string t)
@@ -80,7 +92,12 @@ public class UIManager : MonoBehaviour
     }
     public void ResultKey(string key)
     {
-        StartCoroutine(SetLocalizedText(key));
+        if (_resultCoroutine != null)
+        {
+            StopCoroutine(_resultCoroutine);
+        }
+
+        _resultCoroutine = StartCoroutine(SetLocalizedText(key));
     }
 
     IEnumerator SetLocalizedText(string key)

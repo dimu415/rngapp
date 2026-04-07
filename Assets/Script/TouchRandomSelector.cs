@@ -116,7 +116,6 @@ public class TouchRandomSelector : MonoBehaviour
     // =========================
     IEnumerator RoundRoutine()
     {
-        float timer = selectDelay;
         while (isRunning)
         {
             foreach (var data in touchMap.Values)
@@ -139,14 +138,13 @@ public class TouchRandomSelector : MonoBehaviour
                     yield break;
                 }
 
-                timer = selectDelay - (Time.time - allLoadedTime);
+                float timer = selectDelay - (Time.time - allLoadedTime);
                 timerText.text = timer.ToString("F1");
             }
             else
             {
                 // 하나라도 덜 차면 초기화
                 allLoadedTime = -1f;
-                timer = selectDelay;
             }
 
             yield return null;
@@ -171,8 +169,7 @@ public class TouchRandomSelector : MonoBehaviour
         timerText.text = "0:0";
         timerText.gameObject.SetActive(false);
         List <TouchData> list = new List<TouchData>(touchMap.Values);
-        Debug.Log(list);
-        
+
         TouchData winner = list[Random.Range(0, list.Count)];
         foreach (var data in list)
         {
@@ -182,7 +179,6 @@ public class TouchRandomSelector : MonoBehaviour
 
         touchMap.Clear();
         touchMap.Add(winner.pointerId, winner);
-        Debug.Log(winner.pointerId);
         RestartBtn.SetActive(true);
         StartCoroutine(ColorFadeRoutine());
     }
