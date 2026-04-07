@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_Table_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 324966d628eefe744a037f11702298cb, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1076563517440
+    m_Localized: Dice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1238509789184
+    m_Localized: Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1324857925632
+    m_Localized: Card Up & Down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1516017524736
+    m_Localized: SpinShot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1618287239168
+    m_Localized: RandomDrow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1741331341312
+    m_Localized: TouchOne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3204266827776
+    m_Localized: Throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3476410048512
+    m_Localized: Toss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7447749042176
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7537419067392
+    m_Localized: UP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7623586848768
+    m_Localized: Down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8405811961856
+    m_Localized: Fires with a fixed probability.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8506877911040
+    m_Localized: Randomly fires one of several projectiles.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8514998083584
+    m_Localized: 'If the launch fails, the launch probability increases by '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 256401023672320
+    m_Localized: heads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 257017510862848
+    m_Localized: tails
+    m_Metadata:
+      m_Items: []
+  - m_Id: 257111857537024
+    m_Localized: edge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260856532148224
+    m_Localized: WIN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260936509136896
+    m_Localized: LOSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 262011161124864
+    m_Localized: firing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 262086960586752
+    m_Localized: misfire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263070407434240
+    m_Localized: ' '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 269016970010624
+    m_Localized: Random draw setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 272808801181696
+    m_Localized: Set Number Range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273015462928384
+    m_Localized: Customization
+    m_Metadata:
+      m_Items: []
+  - m_Id: 274864375046144
+    m_Localized: Please set it between 1 and 99.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373555307978752
+    m_Localized: Number of bombs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 667353850290176
+    m_Localized: Bomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595456
+    m_Localized: "Timer\t"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

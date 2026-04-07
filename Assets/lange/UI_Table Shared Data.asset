@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI_Table Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: UI_Table
+  m_TableCollectionNameGuidString: 324966d628eefe744a037f11702298cb
+  m_Entries:
+  - m_Id: 1076563517440
+    m_Key: Menu_Dice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1238509789184
+    m_Key: Menu_Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1324857925632
+    m_Key: "Menu_Card\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1516017524736
+    m_Key: Menu_SpinShot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1618287239168
+    m_Key: Menu_RandomBox
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1741331341312
+    m_Key: Menu_TouchOne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3204266827776
+    m_Key: Dice_Throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3476410048512
+    m_Key: Coin_Toss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7447749042176
+    m_Key: Card_Drow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7537419067392
+    m_Key: Card_Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7623586848768
+    m_Key: "Card_Down\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8405811961856
+    m_Key: SpinShot_Mode1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8506877911040
+    m_Key: SpinShot_Mode2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8514998083584
+    m_Key: SpinShot_Mode3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 256401023672320
+    m_Key: Coin_head
+    m_Metadata:
+      m_Items: []
+  - m_Id: 257017510862848
+    m_Key: Coin_tail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 257111857537024
+    m_Key: Coin_edge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260856532148224
+    m_Key: Card_win
+    m_Metadata:
+      m_Items: []
+  - m_Id: 260936509136896
+    m_Key: Card_lose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 262011161124864
+    m_Key: Spin_fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 262086960586752
+    m_Key: Spin_misfire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 263070407434240
+    m_Key: empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 269016970010624
+    m_Key: Randombox_SettingTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 272808801181696
+    m_Key: "Randombox_Num\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273015462928384
+    m_Key: Randombox_Custom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 274864375046144
+    m_Key: Randombox_numinfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373555307978752
+    m_Key: Boom_num
+    m_Metadata:
+      m_Items: []
+  - m_Id: 667353850290176
+    m_Key: Menu_Bomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595456
+    m_Key: Menu_Timer
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5883537575389430037
+  references:
+    version: 2
+    RefIds:
+    - rid: 5883537575389430037
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1773301372042
