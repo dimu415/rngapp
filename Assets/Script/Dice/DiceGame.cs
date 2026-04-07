@@ -11,7 +11,7 @@ public class DiceGame : MonoBehaviour
 
     private void OnEnable()
     {
-        isrolling = false;   
+        isrolling = false;
     }
     public void Dice_Chang(int v)
     {
