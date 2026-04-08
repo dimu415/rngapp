@@ -49,6 +49,7 @@ public class LadderGame : MonoBehaviour
         {
             resultText.text = $"사다리 준비 완료 ({_items.Count}명)";
         }
+        PublishToUIManager($"사다리 준비 완료 ({_items.Count}명)");
     }
 
     public void RunLadder()
@@ -64,6 +65,7 @@ public class LadderGame : MonoBehaviour
             {
                 warningText.text = "최소 2명 이상 필요합니다.";
             }
+            PublishToUIManager("최소 2명 이상 필요합니다.");
             return;
         }
 
@@ -83,10 +85,7 @@ public class LadderGame : MonoBehaviour
             resultText.text = output;
         }
 
-        if (UIManager.instace != null)
-        {
-            UIManager.instace.ResultTset(output);
-        }
+        PublishToUIManager(output);
     }
 
     private void GenerateLadderMap(int columnCount, int rowCount)
@@ -186,6 +185,20 @@ public class LadderGame : MonoBehaviour
         {
             int j = Random.Range(0, i + 1);
             (list[i], list[j]) = (list[j], list[i]);
+        }
+    }
+
+    private void PublishToUIManager(string text)
+    {
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.ResultTset(text);
+            return;
+        }
+
+        if (UIManager.instace != null)
+        {
+            UIManager.instace.ResultTset(text);
         }
     }
 }
