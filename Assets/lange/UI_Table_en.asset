@@ -134,6 +134,22 @@ MonoBehaviour:
     m_Localized: "Timer\t"
     m_Metadata:
       m_Items: []
+  - m_Id: 4293884648595457
+    m_Localized: Rock Paper Scissors
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595458
+    m_Localized: WIN!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595459
+    m_Localized: LOSE!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595460
+    m_Localized: DRAW
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
