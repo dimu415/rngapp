@@ -47,6 +47,7 @@ public class RouletteGame : MonoBehaviour
         {
             resultText.text = $"룰렛 준비 완료 ({_items.Count}개)";
         }
+        PublishToUIManager($"룰렛 준비 완료 ({_items.Count}개)");
     }
 
     public void Spin()
@@ -67,6 +68,7 @@ public class RouletteGame : MonoBehaviour
             {
                 warningText.text = "최소 2개 이상 필요합니다.";
             }
+            PublishToUIManager("최소 2개 이상 필요합니다.");
             return;
         }
 
@@ -113,10 +115,7 @@ public class RouletteGame : MonoBehaviour
             resultText.text = selected;
         }
 
-        if (UIManager.instace != null)
-        {
-            UIManager.instace.ResultTset(selected);
-        }
+        PublishToUIManager(selected);
 
         _isSpinning = false;
     }
@@ -161,5 +160,19 @@ public class RouletteGame : MonoBehaviour
         }
 
         return parsed;
+    }
+
+    private void PublishToUIManager(string text)
+    {
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.ResultTset(text);
+            return;
+        }
+
+        if (UIManager.instace != null)
+        {
+            UIManager.instace.ResultTset(text);
+        }
     }
 }

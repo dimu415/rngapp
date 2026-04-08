@@ -44,7 +44,8 @@ public class UIManager : MonoBehaviour
         Bomb,
         Timer,
         Ladder,
-        Roulette
+        Roulette,
+        Reaction
     }
     [System.Serializable]
     public class GameMode
