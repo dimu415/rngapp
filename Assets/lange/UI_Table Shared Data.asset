@@ -131,6 +131,22 @@ MonoBehaviour:
     m_Key: Menu_Timer
     m_Metadata:
       m_Items: []
+  - m_Id: 4293884648595457
+    m_Key: Menu_RPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595458
+    m_Key: RPS_Win
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595459
+    m_Key: RPS_Lose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595460
+    m_Key: RPS_Draw
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

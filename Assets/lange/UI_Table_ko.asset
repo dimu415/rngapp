@@ -135,6 +135,22 @@ MonoBehaviour:
     m_Localized: "\uD0C0\uC774\uBA38"
     m_Metadata:
       m_Items: []
+  - m_Id: 4293884648595457
+    m_Localized: 가위바위보
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595458
+    m_Localized: 승리!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595459
+    m_Localized: 패배!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4293884648595460
+    m_Localized: 무승부
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
