@@ -13,12 +13,24 @@ public class LadderGame : MonoBehaviour
     public Text resultText;
     public Text warningText;
 
+    [Header("Ladder Render")]
+    public RectTransform ladderRoot;
+    public Image ladderCellPrefab;
+    public Sprite straightSprite;
+    public Sprite leftSprite;
+    public Sprite rightSprite;
+    public int ladderRows = 8;
+    public float cellWidth = 70f;
+    public float cellHeight = 50f;
+    [Range(0f, 1f)] public float horizontalLineChance = 0.35f;
+
     [Header("Config")]
     public string defaultItemPrefix = "Player";
     public int minCount = 2;
     public int maxCount = 30;
 
     private List<string> _items = new List<string>();
+    private int[,] _ladderMap;
 
     public void BuildLadder()
     {
@@ -29,6 +41,9 @@ public class LadderGame : MonoBehaviour
         {
             warningText.text = string.Empty;
         }
+
+        GenerateLadderMap(_items.Count, ladderRows);
+        RenderLadder();
 
         if (resultText != null)
         {
@@ -71,6 +86,78 @@ public class LadderGame : MonoBehaviour
         if (UIManager.instace != null)
         {
             UIManager.instace.ResultTset(output);
+        }
+    }
+
+    private void GenerateLadderMap(int columnCount, int rowCount)
+    {
+        if (columnCount < 2 || rowCount < 1)
+        {
+            _ladderMap = null;
+            return;
+        }
+
+        _ladderMap = new int[rowCount, columnCount];
+
+        for (int row = 0; row < rowCount; row++)
+        {
+            for (int col = 0; col < columnCount - 1; col++)
+            {
+                if (_ladderMap[row, col] != 0 || _ladderMap[row, col + 1] != 0)
+                {
+                    continue;
+                }
+
+                bool canPlaceHorizontal = Random.value < horizontalLineChance;
+                if (!canPlaceHorizontal)
+                {
+                    continue;
+                }
+
+                // 2 = right, 1 = left
+                _ladderMap[row, col] = 2;
+                _ladderMap[row, col + 1] = 1;
+            }
+        }
+    }
+
+    private void RenderLadder()
+    {
+        if (ladderRoot == null || ladderCellPrefab == null || _ladderMap == null)
+        {
+            return;
+        }
+
+        for (int i = ladderRoot.childCount - 1; i >= 0; i--)
+        {
+            Destroy(ladderRoot.GetChild(i).gameObject);
+        }
+
+        int rows = _ladderMap.GetLength(0);
+        int cols = _ladderMap.GetLength(1);
+
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < cols; col++)
+            {
+                Image cell = Instantiate(ladderCellPrefab, ladderRoot);
+                RectTransform rt = cell.rectTransform;
+                rt.anchoredPosition = new Vector2(col * cellWidth, -row * cellHeight);
+
+                int type = _ladderMap[row, col];
+                if (type == 1)
+                {
+                    cell.sprite = leftSprite;
+                }
+                else if (type == 2)
+                {
+                    cell.sprite = rightSprite;
+                }
+                else
+                {
+                    cell.sprite = straightSprite;
+                }
+            }
         }
     }
 
